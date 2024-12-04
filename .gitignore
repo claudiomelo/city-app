@@ -1,0 +1,72 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Expo
+.expo/
+.expo-shared/
+
+# React Native
+android/.gradle
+android/app/build/
+android/.idea/
+android/local.properties
+android/.settings/
+android/*.iml
+android/captures/
+ios/Pods/
+ios/build/
+*.xcuserstate
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcshareddata/**
+!*.xcodeproj/xcuserdata/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcworkspace/xcshareddata/
+!*.xcworkspace/xcshareddata/**
+
+# Testing
+coverage/
+*.spec.js
+*.test.js
+
+# Logs
+logs
+*.log
+
+# Temp files
+*.swp
+*.swo
+*.swn
+*.sublime-project
+*.sublime-workspace
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/settings.json
+
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+*.app
+*.map
+*.lock
+
+# Miscellaneous
+*.env
+config.json
+debug.keystore
