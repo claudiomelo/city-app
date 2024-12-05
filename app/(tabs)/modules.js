@@ -106,11 +106,7 @@ export default function Modules() {
 
   return (
     <View style={styles.container}>
-      <Header
-        title='Prefeitura de'
-        cityName='Dormentes - PE'
-        imageSource={require('@/assets/images/react-logo.png')}
-      />
+      <Header/>
       <ModulesGrid modules={availableModules} />
     </View>
   );

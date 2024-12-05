@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
-import { Provider as PaperProvider } from 'react-native-paper'; // Import the Provider from react-native-paper
+import { Provider as PaperProvider } from 'react-native-paper';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -29,11 +29,29 @@ export default function RootLayout() {
   }
 
   return (
-    <PaperProvider> {/* Wrap the app with PaperProvider */}
+    <PaperProvider>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <Stack>
+          {/* Rotas principais */}
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
+
+          {/* Adicionando rotas da pasta "pages" manualmente */}
+          <Stack.Screen
+            name="pages/modules-example"
+            options={{
+              title: 'Modules Example',
+              headerShown: false, // Desabilita o header padrão
+            }}
+          />
+
+          <Stack.Screen
+            name="pages/test"
+            options={{
+              title: 'Test',
+              headerShown: false, // Desabilita o header padrão
+            }}
+          />
         </Stack>
         <StatusBar style="auto" />
       </ThemeProvider>

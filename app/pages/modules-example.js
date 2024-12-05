@@ -106,4 +106,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
   },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    top: 30,
+  },
 });

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from 'react-native';
+import { useNavigation } from 'expo-router'; // Importa o hook de navegação
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 const Menu = () => {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation(); // Inicializa a navegação
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [expandedSubMenu, setExpandedSubMenu] = useState(null);
@@ -38,8 +40,23 @@ const Menu = () => {
             </TouchableOpacity>
             {expandedSubMenu === 'menu1' && (
               <View style={styles.subMenu}>
-                <Text style={styles.subMenuItem}>Submenu 1 of Menu 1</Text>
-                <Text style={styles.subMenuItem}>Submenu 2 of Menu 1</Text>
+                {/* Navegação ao clicar no Submenu */}
+                <TouchableOpacity
+                  onPress={() => {
+                    toggleMenu(); // Fecha o menu
+                    navigation.navigate('pages/modules-example'); // Navega para a rota
+                  }}
+                >
+                  <Text style={styles.subMenuItem}>Submenu 1 of Menu 1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    toggleMenu(); // Fecha o menu
+                    navigation.navigate('pages/test'); // Navega para a rota
+                  }}
+                >
+                  <Text style={styles.subMenuItem}>Submenu 2 of Menu 1</Text>
+                </TouchableOpacity>
               </View>
             )}
 

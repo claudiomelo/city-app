@@ -7,8 +7,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 const Header = ({ title, cityName, imageSource }) => {
   const colorScheme = useColorScheme();
   title = title || 'Prefeitura de';
-  cityName = cityName || 'NOME DA CIDADE';
-  imageSource = imageSource || require('@/assets/images/react-logo.png');
+  cityName = cityName || 'Dormentes';
+  imageSource = imageSource || require('@/assets/images/dormentes-brazao.jpeg');
 
   const [textHeight, setTextHeight] = useState(0); // Dynamically adjust height based on text
 

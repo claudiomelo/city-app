@@ -6,11 +6,7 @@ import DefaultWebView from '../../components/DefaultWebView';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Header
-        title="Dormentes - PE"
-        imageSource={require('@/assets/images/react-logo.png')}
-      />
-
+      <Header/>
       <DefaultWebView/>
     </View>
   );

@@ -112,11 +112,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <Header
-        title='Prefeitura de'
-        cityName='Dormentes - PE'
-        imageSource={require('@/assets/images/dormentes-brazao.jpeg')}
-      />
+      <Header/>
       <ModulesGrid modules={availableModules} />
     </View>
   );

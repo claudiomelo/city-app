@@ -48,13 +48,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="view-module" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="modules-example"
-        options={{
-          tabBarStyle: { display: 'none' }, // Hide tab for this screen
-        }}
-      />
-
     </Tabs>
   );
 }
