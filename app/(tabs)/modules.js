@@ -1,109 +1,125 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { View, Image, StyleSheet, Platform } from 'react-native';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
+import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
-export default function TabTwoScreen() {
+import Header from '../../components/Header';
+import ModulesGrid from '../../components/ModulesGrid';
+import { Button } from 'react-native-paper';
+
+export default function Modules() {
+
+  const availableModules = {
+    module1: {
+      cardType: 'CardSimple',
+      title: 'Serviços Urbanos',
+      description: 'Solicite serviços para sua região',
+      cardSize: '1',
+      backgroundColor: '#EAF8E6',
+      backgroundImage: null,
+      enabled: true,
+      visible: true,
+      modulePage: '/servicos-urbanos',
+      notEnabledMessage: 'Este módulo não está habilitado.',
+    },
+    module2: {
+      cardType: 'CardSimple',
+      title: 'Serviços Rurais',
+      description: 'Atendimento para zona rural',
+      cardSize: '2',
+      backgroundColor: '#F4E6E8',
+      backgroundImage: null,
+      enabled: true,
+      visible: true,
+      modulePage: '/servicos-rurais',
+      notEnabledMessage: 'Este módulo não está habilitado.',
+    },
+    module3: {
+      cardType: 'CardSimple',
+      title: 'Serviços de Saúde',
+      description: 'Encontre clínicas e postos de saúde',
+      cardSize: '2',
+      backgroundColor: '#E6F4F8',
+      backgroundImage: null,
+      enabled: true,
+      visible: true,
+      modulePage: '/servicos-saude',
+      notEnabledMessage: 'Este módulo não está habilitado.',
+    },
+    module4: {
+      cardType: 'CardSimple',
+      title: 'Escolas',
+      description: 'Localize escolas municipais',
+      cardSize: '2',
+      backgroundColor: '#F8EAE6',
+      backgroundImage: null,
+      enabled: true,
+      visible: true,
+      modulePage: '/escolas',
+      notEnabledMessage: 'Este módulo não está habilitado.',
+    },
+    module5: {
+      cardType: 'CardSimple',
+      title: 'Eventos',
+      description: 'Solicitação de espaços para eventos',
+      cardSize: '2',
+      backgroundColor: '#E6EAF8',
+      backgroundImage: null,
+      enabled: true,
+      visible: true,
+      modulePage: '/eventos',
+      notEnabledMessage: 'Este módulo não está habilitado.',
+    },
+    module6: {
+      cardType: 'CardSlideShowWithAnimation',
+      title: 'Destaques',
+      backgroundColor: '#F4F4F4',
+      enabled: true,
+      visible: true,
+      animationDuration: 1500, // 1.5 segundos para animação
+      animationEffect: 'slide', // "fade" ou "slide"
+      intervalDuration: 7000, // 7 segundos entre slides
+      slides: {
+        slide1: {
+          image: require('@/assets/images/slide1.png'),
+          buttonText: 'Saiba Mais',
+          buttonLink: '/destaque1',
+          buttonPosition: 'bottom center',
+        },
+        slide2: {
+          image: require('@/assets/images/slide2.png'),
+          buttonText: 'Explore Mais',
+          buttonLink: '/destaque2',
+          buttonPosition: 'top right',
+        },
+        slide3: {
+          image: require('@/assets/images/slide3.png'),
+          buttonText: 'Ver Detalhes',
+          buttonLink: '/destaque3',
+          buttonPosition: 'center center',
+        },
+      },
+    }    
+  };
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
-        <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
-        </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
-        <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Custom fonts">
-        <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Light and dark mode components">
-        <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
-        </ExternalLink>
-      </Collapsible>
-      <Collapsible title="Animations">
-        <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
-        </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
-      </Collapsible>
-    </ParallaxScrollView>
+    <View style={styles.container}>
+      <Header
+        title='Prefeitura de'
+        cityName='Dormentes - PE'
+        imageSource={require('@/assets/images/react-logo.png')}
+      />
+      <ModulesGrid modules={availableModules} />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    top: 30,
   },
 });

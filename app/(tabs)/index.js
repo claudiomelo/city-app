@@ -18,60 +18,65 @@ export default function HomeScreen() {
       title: 'Serviços Urbanos',
       description: 'Solicite serviços para sua região',
       cardSize: '1',
-      backgroundColor: '#EAF8E6',
+      backgroundColor: '#F0F4C3',
       backgroundImage: null,
       enabled: true,
       visible: true,
       modulePage: '/servicos-urbanos',
       notEnabledMessage: 'Este módulo não está habilitado.',
+      icon: require('@/assets/images/servicos-urbanos-1.png'),
     },
     module2: {
       cardType: 'CardSimple',
       title: 'Serviços Rurais',
       description: 'Atendimento para zona rural',
       cardSize: '2',
-      backgroundColor: '#F4E6E8',
+      backgroundColor: '#C8E6C9',
       backgroundImage: null,
       enabled: true,
       visible: true,
       modulePage: '/servicos-rurais',
       notEnabledMessage: 'Este módulo não está habilitado.',
+      icon: require('@/assets/images/servicos-rurais-2.png'),
     },
     module3: {
       cardType: 'CardSimple',
       title: 'Serviços de Saúde',
       description: 'Encontre clínicas e postos de saúde',
       cardSize: '2',
-      backgroundColor: '#E6F4F8',
+      backgroundColor: '#B2EBF2',
       backgroundImage: null,
       enabled: true,
       visible: true,
       modulePage: '/servicos-saude',
       notEnabledMessage: 'Este módulo não está habilitado.',
+      icon: require('@/assets/images/servicos-saude.png'),
     },
     module4: {
       cardType: 'CardSimple',
       title: 'Escolas',
       description: 'Localize escolas municipais',
       cardSize: '2',
-      backgroundColor: '#F8EAE6',
+      backgroundColor: '#BBDEFB',
       backgroundImage: null,
       enabled: true,
       visible: true,
       modulePage: '/escolas',
       notEnabledMessage: 'Este módulo não está habilitado.',
+      icon: require('@/assets/images/servicos-escolas.png'),
     },
     module5: {
       cardType: 'CardSimple',
       title: 'Eventos',
       description: 'Solicitação de espaços para eventos',
       cardSize: '2',
-      backgroundColor: '#E6EAF8',
+      backgroundColor: '#D1C4E9',
       backgroundImage: null,
       enabled: true,
       visible: true,
       modulePage: '/eventos',
       notEnabledMessage: 'Este módulo não está habilitado.',
+      icon: require('@/assets/images/evento.png'),
     },
     module6: {
       cardType: 'CardSlideShowWithAnimation',
@@ -110,7 +115,7 @@ export default function HomeScreen() {
       <Header
         title='Prefeitura de'
         cityName='Dormentes - PE'
-        imageSource={require('@/assets/images/react-logo.png')}
+        imageSource={require('@/assets/images/dormentes-brazao.jpeg')}
       />
       <ModulesGrid modules={availableModules} />
     </View>
@@ -121,5 +126,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    top: 30,
   },
 });

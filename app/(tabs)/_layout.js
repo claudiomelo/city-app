@@ -10,11 +10,12 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const mainColor = Colors[colorScheme ?? 'light'].mainColor;
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: mainColor,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -47,6 +48,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="view-module" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="modules-example"
+        options={{
+          tabBarStyle: { display: 'none' }, // Hide tab for this screen
+        }}
+      />
+
     </Tabs>
   );
 }

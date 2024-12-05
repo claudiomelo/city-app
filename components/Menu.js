@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from 'react-native';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 const Menu = () => {
+  const colorScheme = useColorScheme();
+
   const [menuVisible, setMenuVisible] = useState(false);
   const [expandedSubMenu, setExpandedSubMenu] = useState(null);
 
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
   menuIcon: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#555',
+    color: Colors.light.mainColor,
   },
   overlay: {
     flex: 1,

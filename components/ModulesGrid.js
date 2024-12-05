@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import CardSimple from './cards/CardSimple';
+import CardSimple2 from './cards/CardSimple2';
 import CardSlideShow from './cards/CardSlideShow';
 import CardSlideShowWithAnimation from './cards/CardSlideShowWithAnimation.js';
 
@@ -21,7 +21,7 @@ const ModulesGrid = ({ modules }) => {
             CardComponent = CardSlideShow;
             break;
           default:
-            CardComponent = CardSimple;
+            CardComponent = CardSimple2;
         }
 
         return (

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import Menu from './Menu';
+import { Colors } from '@/constants/Colors';
+import { useColorScheme } from '@/hooks/useColorScheme';
 
 const Header = ({ title, cityName, imageSource }) => {
+  const colorScheme = useColorScheme();
   title = title || 'Prefeitura de';
   cityName = cityName || 'NOME DA CIDADE';
   imageSource = imageSource || require('@/assets/images/react-logo.png');
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: '#f9f9f9',
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: "#ccc",
     width: '100%',
   },
   menuWrapper: {
@@ -73,12 +76,12 @@ const styles = StyleSheet.create({
   cityName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: Colors.light.mainColor,
     textAlign: 'center',
   },
   underline: {
     height: 2,
-    backgroundColor: '#000',
+    backgroundColor: '#d9020e',
     width: '100%', // Match the full width of the cityName
     marginTop: 2, // Very close to the text
   },

@@ -8,15 +8,26 @@ const CardSimple = ({ module, onPress }) => {
 
   return (
     <TouchableOpacity
-      style={[styles.card, { backgroundColor: module.backgroundColor || '#fff', flexBasis }]}
+      style={[
+        styles.card,
+        {
+          flexBasis,
+          backgroundColor: module.backgroundColor || '#ffffff',
+          borderColor: module.borderColor || 'rgba(0,0,0,0.1)',
+        },
+      ]}
       onPress={onPress}
+      activeOpacity={0.8}
     >
-      <View style={styles.cardContent}>
-        {/* Title */}
-        <Text style={styles.cardTitle}>{module.title}</Text>
+      {/* Add subtle shadow for depth */}
+      <View style={styles.cardShadow}>
+        <View style={styles.cardContent}>
+          {/* Title */}
+          <Text style={styles.cardTitle}>{module.title}</Text>
 
-        {/* Description */}
-        <Text style={styles.cardDescription}>{module.description}</Text>
+          {/* Description */}
+          <Text style={styles.cardDescription}>{module.description}</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -24,28 +35,43 @@ const CardSimple = ({ module, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 10,
-    borderRadius: 10,
-    padding: 15,
+    marginBottom: 15,
+    borderRadius: 20,
+    padding: 20,
     borderWidth: 1,
-    borderColor: '#ccc',
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 6, // Shadow effect for Android
+  },
+  cardShadow: {
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 15,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 8, // Shadow effect for Android
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Transparent background for better contrast
+    borderRadius: 20,
   },
   cardContent: {
     alignItems: 'center',
+    padding: 10,
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: '#333',
     textAlign: 'center',
+    marginBottom: 10,
+    textShadowColor: 'rgba(0, 0, 0, 0.1)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 4,
   },
   cardDescription: {
     fontSize: 14,
-    color: '#666',
+    color: '#555',
     textAlign: 'center',
-    marginTop: 5,
+    opacity: 0.8,
   },
 });
 

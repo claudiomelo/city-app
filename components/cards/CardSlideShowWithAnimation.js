@@ -11,36 +11,40 @@ import {
 
 const CardSlideShowWithAnimation = ({ module, height = 250 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [animationValue] = useState(new Animated.Value(0)); // For animations
+  const [animationValue] = useState(new Animated.Value(1)); // For fade-in and fade-out animations
   const [loading, setLoading] = useState(true);
   const slides = Object.values(module.slides);
 
   const slide = slides[currentSlide];
 
-  // Animate the slide change
-  const animateSlide = () => {
+  // Fade-out and fade-in animation during slide changes
+  const animateSlideChange = (nextSlide) => {
     Animated.timing(animationValue, {
-      toValue: 1,
-      duration: 5000, // Animation duration increased to 1 second
+      toValue: 0, // Fade out
+      duration: 500,
       useNativeDriver: true,
     }).start(() => {
-      animationValue.setValue(0); // Reset animation value
+      setCurrentSlide(nextSlide);
+      setLoading(true); // Reset loading state for the new slide
+      Animated.timing(animationValue, {
+        toValue: 1, // Fade in
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
     });
   };
 
   // Go to next slide
   const goToNextSlide = () => {
     if (currentSlide < slides.length - 1) {
-      setCurrentSlide((prev) => prev + 1);
-      animateSlide();
+      animateSlideChange(currentSlide + 1);
     }
   };
 
   // Go to previous slide
   const goToPrevSlide = () => {
     if (currentSlide > 0) {
-      setCurrentSlide((prev) => prev - 1);
-      animateSlide();
+      animateSlideChange(currentSlide - 1);
     }
   };
 
@@ -50,10 +54,9 @@ const CardSlideShowWithAnimation = ({ module, height = 250 }) => {
       if (currentSlide < slides.length - 1) {
         goToNextSlide();
       } else {
-        setCurrentSlide(0);
-        animateSlide();
+        animateSlideChange(0); // Loop back to the first slide
       }
-    }, 6000); // Increased interval to 6 seconds
+    }, 6000); // Interval of 6 seconds
     return () => clearInterval(interval);
   }, [currentSlide, slides.length]);
 
