@@ -1,16 +1,22 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import CardSimple2 from './cards/CardSimple2';
 import CardSlideShow from './cards/CardSlideShow';
 import CardSlideShowWithAnimation from './cards/CardSlideShowWithAnimation.js';
+import { useRouter } from 'expo-router'; // Importa o useRouter para navegação
 
 const ModulesGrid = ({ modules }) => {
   const visibleModules = Object.values(modules).filter(
     (module) => module.enabled && module.visible
   );
+  const router = useRouter(); // Inicializa o roteador
 
   return (
-    <View style={styles.gridContainer}>
+    <ScrollView
+      showsVerticalScrollIndicator={true}
+      style={styles.scrollView}
+      contentContainerStyle={styles.gridContainer} // Apply layout styles here
+    >
       {visibleModules.map((module, index) => {
         let CardComponent;
         switch (module.cardType) {
@@ -28,20 +34,22 @@ const ModulesGrid = ({ modules }) => {
           <CardComponent
             key={index}
             module={module}
-            onPress={() => console.log(`Navigating to ${module.modulePage}`)}
+            onPress={() => router.push(module.modulePage)} // Navigate on press
           />
         );
       })}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    padding: 10,
+  },
   gridContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    padding: 10,
   },
 });
 

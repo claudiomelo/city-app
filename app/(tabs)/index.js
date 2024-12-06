@@ -61,7 +61,7 @@ export default function HomeScreen() {
       backgroundImage: null,
       enabled: true,
       visible: true,
-      modulePage: '/escolas',
+      modulePage: '/pages/schoolsList',
       notEnabledMessage: 'Este módulo não está habilitado.',
       icon: require('@/assets/images/servicos-escolas.png'),
     },

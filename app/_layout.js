@@ -38,9 +38,9 @@ export default function RootLayout() {
 
           {/* Adicionando rotas da pasta "pages" manualmente */}
           <Stack.Screen
-            name="pages/modules-example"
+            name="pages/schoolsList"
             options={{
-              title: 'Modules Example',
+              title: 'schoolsList',
               headerShown: false, // Desabilita o header padrão
             }}
           />

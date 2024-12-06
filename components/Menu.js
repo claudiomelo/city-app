@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from 'react-native';
-import { useNavigation } from 'expo-router'; // Importa o hook de navegação
+import { useNavigation } from 'expo-router'; // Import navigation hook
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 const Menu = () => {
   const colorScheme = useColorScheme();
-  const navigation = useNavigation(); // Inicializa a navegação
+  const navigation = useNavigation(); // Initialize navigation
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [expandedSubMenu, setExpandedSubMenu] = useState(null);
@@ -20,7 +20,7 @@ const Menu = () => {
     <>
       {/* Trigger Button */}
       <TouchableOpacity onPress={toggleMenu} style={styles.menuButton}>
-        <Text style={styles.menuIcon}>{menuVisible ? 'X' : '☰'}</Text>
+        <Text style={styles.menuIcon}>{menuVisible ? '✖' : '☰'}</Text>
       </TouchableOpacity>
 
       {/* Custom Dropdown Menu */}
@@ -35,42 +35,41 @@ const Menu = () => {
           <View style={styles.menu}>
             {/* Main Menu Item 1 */}
             <TouchableOpacity onPress={() => toggleSubMenu('menu1')} style={styles.menuItem}>
-              <Text style={styles.menuText}>Menu 1</Text>
-              <Text style={styles.arrow}>{expandedSubMenu === 'menu1' ? '▼' : '▶'}</Text>
+              <Text style={styles.menuText}>Features</Text>
+              <Text style={styles.arrow}>
+                {expandedSubMenu === 'menu1' ? '▲' : '▼'}
+              </Text>
             </TouchableOpacity>
             {expandedSubMenu === 'menu1' && (
               <View style={styles.subMenu}>
-                {/* Navegação ao clicar no Submenu */}
                 <TouchableOpacity
                   onPress={() => {
-                    toggleMenu(); // Fecha o menu
-                    navigation.navigate('pages/modules-example'); // Navega para a rota
+                    toggleMenu();
+                    navigation.navigate('pages/schoolsList');
                   }}
+                  style={styles.subMenuItemContainer} // Style for submenu row
                 >
-                  <Text style={styles.subMenuItem}>Submenu 1 of Menu 1</Text>
+                  <Text style={styles.subMenuItem}>Escolas</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   onPress={() => {
-                    toggleMenu(); // Fecha o menu
-                    navigation.navigate('pages/test'); // Navega para a rota
+                    toggleMenu();
+                    navigation.navigate('pages/test');
                   }}
+                  style={styles.subMenuItemContainer} // Style for submenu row
                 >
-                  <Text style={styles.subMenuItem}>Submenu 2 of Menu 1</Text>
+                  <Text style={styles.subMenuItem}>Test</Text>
                 </TouchableOpacity>
               </View>
             )}
 
             {/* Main Menu Item 2 */}
             <TouchableOpacity onPress={() => toggleSubMenu('menu2')} style={styles.menuItem}>
-              <Text style={styles.menuText}>Menu 2</Text>
-              <Text style={styles.arrow}>{expandedSubMenu === 'menu2' ? '▼' : '▶'}</Text>
+              <Text style={styles.menuText}>Services</Text>
+              <Text style={styles.arrow}>
+                {expandedSubMenu === 'menu2' ? '▲' : '▼'}
+              </Text>
             </TouchableOpacity>
-            {expandedSubMenu === 'menu2' && (
-              <View style={styles.subMenu}>
-                <Text style={styles.subMenuItem}>Submenu 1 of Menu 2</Text>
-                <Text style={styles.subMenuItem}>Submenu 2 of Menu 2</Text>
-              </View>
-            )}
           </View>
         </Pressable>
       </Modal>
@@ -94,40 +93,50 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   menu: {
-    backgroundColor: 'white',
-    borderRadius: 8,
-    padding: 15,
+    backgroundColor: '#d98a8e',
+    padding: 10,
     marginTop: 50,
     marginLeft: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 6,
+    minWidth: 200,
   },
   menuItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#c25b64',
   },
   menuText: {
     fontSize: 16,
-    color: '#333',
+    fontWeight: '500',
+    color: '#fff',
   },
   arrow: {
-    fontSize: 16,
-    color: '#888',
+    fontSize: 14,
+    color: '#fff',
     marginLeft: 10,
   },
   subMenu: {
-    paddingLeft: 20,
-    marginTop: 5,
+    marginLeft: 10,
+    marginTop: 10,
+  },
+  subMenuItemContainer: {
+    backgroundColor: '#d98a8e', // Light red background for the row
+    borderRadius: 4,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    marginBottom: 5,
   },
   subMenuItem: {
-    paddingVertical: 5,
     fontSize: 14,
-    color: '#555',
+    fontWeight: '400',
+    color: '#fff',
   },
 });
 

@@ -5,33 +5,35 @@ const CardSimple2 = ({ module, onPress }) => {
   // Dynamically calculate flexBasis based on cardSize
   const flexBasis =
     module.cardSize === '1' ? '100%' : module.cardSize === '2' ? '48%' : '30%';
+    const handlePress = () => {
+        router.push('/pages/schoolsList'); // Navega para a página desejada
+    };
+    return (
+        <TouchableOpacity
+        style={[
+            styles.card,
+            {
+            flexBasis,
+            backgroundColor: module.backgroundColor || '#ffffff',
+            },
+        ]}
+        onPress={onPress}
+        activeOpacity={0.9}
+        >
+        <View style={styles.cardContent}>
+            {/* Icon */}
+            {module.icon && (
+            <Image source={module.icon} style={styles.cardIcon} resizeMode="contain" />
+            )}
 
-  return (
-    <TouchableOpacity
-      style={[
-        styles.card,
-        {
-          flexBasis,
-          backgroundColor: module.backgroundColor || '#ffffff',
-        },
-      ]}
-      onPress={onPress}
-      activeOpacity={0.9}
-    >
-      <View style={styles.cardContent}>
-        {/* Icon */}
-        {module.icon && (
-          <Image source={module.icon} style={styles.cardIcon} resizeMode="contain" />
-        )}
+            {/* Title */}
+            <Text style={styles.cardTitle}>{module.title}</Text>
 
-        {/* Title */}
-        <Text style={styles.cardTitle}>{module.title}</Text>
-
-        {/* Description */}
-        <Text style={styles.cardDescription}>{module.description}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+            {/* Description */}
+            <Text style={styles.cardDescription}>{module.description}</Text>
+        </View>
+        </TouchableOpacity>
+    );
 };
 
 const styles = StyleSheet.create({
