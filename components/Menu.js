@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from 'reac
 import { useNavigation } from 'expo-router'; // Import navigation hook
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { useRouter } from 'expo-router'; // Importa o useRouter para navegação
 
 const Menu = () => {
   const colorScheme = useColorScheme();
@@ -10,6 +11,7 @@ const Menu = () => {
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [expandedSubMenu, setExpandedSubMenu] = useState(null);
+  const router = useRouter(); // Inicializa o roteador
 
   const toggleMenu = () => setMenuVisible(!menuVisible);
   const toggleSubMenu = (menu) => {
@@ -34,8 +36,11 @@ const Menu = () => {
         <Pressable style={styles.overlay} onPress={toggleMenu}>
           <View style={styles.menu}>
             {/* Main Menu Item 1 */}
+            <TouchableOpacity onPress={() => router.push('/')} style={styles.menuItem}>
+              <Text style={styles.menuText}>Home</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => toggleSubMenu('menu1')} style={styles.menuItem}>
-              <Text style={styles.menuText}>Features</Text>
+              <Text style={styles.menuText}>Serviços</Text>
               <Text style={styles.arrow}>
                 {expandedSubMenu === 'menu1' ? '▲' : '▼'}
               </Text>
@@ -62,14 +67,6 @@ const Menu = () => {
                 </TouchableOpacity>
               </View>
             )}
-
-            {/* Main Menu Item 2 */}
-            <TouchableOpacity onPress={() => toggleSubMenu('menu2')} style={styles.menuItem}>
-              <Text style={styles.menuText}>Services</Text>
-              <Text style={styles.arrow}>
-                {expandedSubMenu === 'menu2' ? '▲' : '▼'}
-              </Text>
-            </TouchableOpacity>
           </View>
         </Pressable>
       </Modal>
