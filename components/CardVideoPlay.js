@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Video from 'react-native-video';
+import { Video } from 'expo-av';
 
 const CardVideoPlay = ({ videoUrl }) => {
   return (
@@ -9,10 +9,11 @@ const CardVideoPlay = ({ videoUrl }) => {
         source={{ uri: videoUrl }} // URL do vídeo
         style={styles.video}        // Estilo do vídeo
         resizeMode="cover"          // Ajusta como o vídeo será redimensionado
-        repeat                      // Faz o vídeo rodar em loop
-        muted                       // Silencia o áudio
-        controls                    // Exibe controles de reprodução
+        isLooping                   // Faz o vídeo rodar em loop
+        isMuted                     // Silencia o áudio
+        useNativeControls           // Exibe controles de reprodução
         onError={(error) => console.error('Erro ao carregar vídeo:', error)} // Log de erros
+        shouldPlay                  // Faz o vídeo iniciar automaticamente
       />
     </View>
   );

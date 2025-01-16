@@ -8,7 +8,7 @@ const Header = ({ title, cityName, imageSource }) => {
   const colorScheme = useColorScheme();
   title = title || 'CONECTA';
   cityName = cityName || 'Dormentes';
-  imageSource = imageSource || require('@/assets/images/dormentes-brazao.jpeg');
+  imageSource = imageSource || require('@/assets/images/icon.png');
 
   const [textHeight, setTextHeight] = useState(0); // Dynamically adjust height based on text
 
