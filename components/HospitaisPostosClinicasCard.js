@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router'; // Importa o useRouter para navegação
 
 
-const SchoolCard = ({ title, address, neighborhood, cep, cityUF, phone, escolaIntegrada = true }) => {
+const HospitaisPostosClinicasCard = ({ title, address, neighborhood, cep, cityUF, phone, horarioFuncionamento }) => {
   //const navigation = useNavigation(); // Initialize navigation
   const router = useRouter(); // Inicializa o roteador
   return (
@@ -14,12 +14,12 @@ const SchoolCard = ({ title, address, neighborhood, cep, cityUF, phone, escolaIn
       <Text style={styles.cardText}>{neighborhood}</Text>
       <Text style={styles.cardText}>CEP: {cep}</Text>
       <Text style={styles.cardText}>{cityUF}</Text>
-      <Text style={styles.cardText}>Telefone: {phone || 'Não disponível'}</Text>
-        {escolaIntegrada && (
-          <TouchableOpacity onPress={() => router.push('/pages/escola')}>
-            <Text style={styles.link}>Acessar Escola</Text>
-          </TouchableOpacity>
-        )}
+      <Text style={styles.cardText}>Telefone: {phone || 'Não informado'}</Text>
+      <Text style={styles.cardText}>Horário: {horarioFuncionamento || 'Não informado'}</Text>
+      <TouchableOpacity
+        onPress={() => router.push('/pages/escola')}
+      >
+      </TouchableOpacity>
     </View>
   );
 };
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SchoolCard;
+export default HospitaisPostosClinicasCard;

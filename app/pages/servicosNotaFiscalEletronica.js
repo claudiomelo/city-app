@@ -7,7 +7,7 @@ export default function ServicosUrbanosIPTU() {
   return (
     <View style={styles.container}>
       <DefaultWebView 
-        url='https://www.dormentes.pe.gov.br/servicos/iptu'
+        url='https://www.dormentes.pe.gov.br/servicos/nota-fiscal-eletronica'
       />
         <Footer />
     </View>

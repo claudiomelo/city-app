@@ -54,6 +54,12 @@ const Menu = () => {
                   <Text style={styles.subMenuItem}>Escolas</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                  onPress={() => router.push('/pages/servicosSaude')}
+                  style={styles.subMenuItemContainer} // Style for submenu row
+                >
+                  <Text style={styles.subMenuItem}>Hotpitals e Postos</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
                   onPress={() => {
                     toggleMenu();
                     navigation.navigate('pages/servicosUrbanos');

@@ -46,6 +46,14 @@ export default function RootLayout() {
           />
 
           <Stack.Screen
+            name="pages/servicosSaude"
+            options={{
+              title: 'Hospitais, Postos, Clinicas ',
+              headerShown: false, // Desabilita o header padrão
+            }}
+          />
+
+          <Stack.Screen
             name="pages/servicosUrbanos"
             options={{
               title: 'servicosUrbanos',
@@ -56,7 +64,7 @@ export default function RootLayout() {
           <Stack.Screen
             name="pages/servicosUrbanosIPTU"
             options={{
-              title: 'Test',
+              title: 'IPTU',
               headerShown: false, // Desabilita o header padrão
             }}
           />

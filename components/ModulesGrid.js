@@ -2,14 +2,16 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import CardSimple2 from './cards/CardSimple2';
 import CardSlideShow from './cards/CardSlideShow';
-import CardSlideShowWithAnimation from './cards/CardSlideShowWithAnimation.js';
-import { useRouter } from 'expo-router'; // Importa o useRouter para navegação
+import CardSlideShowWithAnimation from './cards/CardSlideShowWithAnimation';
+import CardVideoPlay from './CardVideoPlay';
+
+import { useRouter } from 'expo-router'; // Import useRouter for navigation
 
 const ModulesGrid = ({ modules }) => {
   const visibleModules = Object.values(modules).filter(
     (module) => module.enabled && module.visible
   );
-  const router = useRouter(); // Inicializa o roteador
+  const router = useRouter(); // Initialize the router
 
   return (
     <ScrollView
@@ -19,6 +21,8 @@ const ModulesGrid = ({ modules }) => {
     >
       {visibleModules.map((module, index) => {
         let CardComponent;
+
+        // Handle the card type
         switch (module.cardType) {
           case 'CardSlideShowWithAnimation':
             CardComponent = CardSlideShowWithAnimation;
@@ -26,6 +30,10 @@ const ModulesGrid = ({ modules }) => {
           case 'CardSlideShow':
             CardComponent = CardSlideShow;
             break;
+          case 'CardVideoPlay': // Handle the video card
+            return (
+              <CardVideoPlay key={index} videoUrl={module.videoUrl} />
+            );
           default:
             CardComponent = CardSimple2;
         }

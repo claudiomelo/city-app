@@ -6,7 +6,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 const Header = ({ title, cityName, imageSource }) => {
   const colorScheme = useColorScheme();
-  title = title || 'Prefeitura de';
+  title = title || 'CONECTA';
   cityName = cityName || 'Dormentes';
   imageSource = imageSource || require('@/assets/images/dormentes-brazao.jpeg');
 

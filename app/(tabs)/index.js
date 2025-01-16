@@ -7,7 +7,7 @@ import { ThemedView } from '@/components/ThemedView';
 
 import Header from '../../components/Header';
 import ModulesGrid from '../../components/ModulesGrid';
-import { Button } from 'react-native-paper';
+//import { Button } from 'react-native-paper';
 
 export default function HomeScreen() {
 
@@ -48,7 +48,7 @@ export default function HomeScreen() {
       backgroundImage: null,
       enabled: true,
       visible: true,
-      modulePage: '/servicos-saude',
+      modulePage: 'pages/servicosSaude',
       notEnabledMessage: 'Este módulo não está habilitado.',
       icon: require('@/assets/images/servicos-saude.png'),
     },
@@ -79,6 +79,12 @@ export default function HomeScreen() {
       icon: require('@/assets/images/evento.png'),
     },
     module6: {
+      cardType: 'CardVideoPlay',
+      enabled: true,
+      visible: true,
+      videoUrl: 'https://dormentes.escolas.conectaprefeituras.com/videos/video-dormentes.mp4'
+    },
+    /*module6: {
       cardType: 'CardSlideShowWithAnimation',
       title: 'Destaques',
       backgroundColor: '#F4F4F4',
@@ -107,7 +113,7 @@ export default function HomeScreen() {
           buttonPosition: 'center center',
         },
       },
-    }    
+    }*/  
   };
 
   return (
