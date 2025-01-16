@@ -21,12 +21,7 @@ export default function Footer() {
       name: 'website', // Rota do Site da Prefeitura
       title: 'Site da prefeitura',
       icon: 'web',
-    },
-    {
-      name: 'modules', // Rota do Módulos
-      title: 'Modulos',
-      icon: 'view-module',
-    },
+    }
   ];
 
   return (

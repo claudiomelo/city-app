@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 
-const DefaultWebView = () => {
+const DefaultWebView = ( {url = 'https://www.dormentes.pe.gov.br/'} ) => {
   return (
     <View style={styles.container}>
-      <WebView source={{ uri: 'https://www.dormentes.pe.gov.br/servicos/iptu' }} />
+      <WebView source={{ uri: url }} />
     </View>
   );
 };

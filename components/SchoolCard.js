@@ -1,7 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+//import { useNavigation } from 'expo-router'; // Import navigation hook
+import { useRouter } from 'expo-router'; // Importa o useRouter para navegação
+
 
 const SchoolCard = ({ title, address, neighborhood, cep, cityUF, phone }) => {
+  //const navigation = useNavigation(); // Initialize navigation
+  const router = useRouter(); // Inicializa o roteador
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{title}</Text>
@@ -10,7 +15,9 @@ const SchoolCard = ({ title, address, neighborhood, cep, cityUF, phone }) => {
       <Text style={styles.cardText}>CEP: {cep}</Text>
       <Text style={styles.cardText}>{cityUF}</Text>
       <Text style={styles.cardText}>Telefone: {phone || 'Não disponível'}</Text>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => router.push('/pages/escola')}
+      >
         <Text style={styles.link}>Mais detalhes</Text>
       </TouchableOpacity>
     </View>

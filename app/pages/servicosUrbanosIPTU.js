@@ -1,12 +1,15 @@
 import { View, StyleSheet } from 'react-native';
 
-import Header from '../../components/Header';
 import DefaultWebView from '../../components/DefaultWebView';
+import Footer from '@/components/Footer';
 
-export default function HomeScreen() {
+export default function ServicosUrbanosIPTU() {
   return (
     <View style={styles.container}>
-      <DefaultWebView/>
+      <DefaultWebView 
+        url='http://tributos.aossoftware.com.br:8017/servicosweb/home.jsf'
+      />
+        <Footer />
     </View>
   );
 }

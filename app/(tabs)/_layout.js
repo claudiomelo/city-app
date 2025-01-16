@@ -41,13 +41,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="web" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="modules"
-        options={{
-          title: 'Modulos',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="view-module" color={color} />,
-        }}
-      />
     </Tabs>
   );
 }

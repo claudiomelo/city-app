@@ -38,17 +38,33 @@ export default function RootLayout() {
 
           {/* Adicionando rotas da pasta "pages" manualmente */}
           <Stack.Screen
-            name="pages/schoolsList"
+            name="pages/escolas"
             options={{
-              title: 'schoolsList',
+              title: 'escolas',
               headerShown: false, // Desabilita o header padrão
             }}
           />
 
           <Stack.Screen
-            name="pages/test"
+            name="pages/servicosUrbanos"
+            options={{
+              title: 'servicosUrbanos',
+              headerShown: false, // Desabilita o header padrão
+            }}
+          />
+
+          <Stack.Screen
+            name="pages/servicosUrbanosIPTU"
             options={{
               title: 'Test',
+              headerShown: false, // Desabilita o header padrão
+            }}
+          />
+
+          <Stack.Screen
+            name="pages/escola"
+            options={{
+              title: 'Esola',
               headerShown: false, // Desabilita o header padrão
             }}
           />

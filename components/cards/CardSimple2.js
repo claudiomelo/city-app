@@ -6,7 +6,7 @@ const CardSimple2 = ({ module, onPress }) => {
   const flexBasis =
     module.cardSize === '1' ? '100%' : module.cardSize === '2' ? '48%' : '30%';
     const handlePress = () => {
-        router.push('/pages/schoolsList'); // Navega para a página desejada
+        router.push('/pages/escolas'); // Navega para a página desejada
     };
     return (
         <TouchableOpacity

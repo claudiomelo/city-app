@@ -21,7 +21,7 @@ export default function Modules() {
       backgroundImage: null,
       enabled: true,
       visible: true,
-      modulePage: '/servicos-urbanos',
+      modulePage: '/pages/servicos-urbanos',
       notEnabledMessage: 'Este módulo não está habilitado.',
     },
     module2: {
